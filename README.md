@@ -27,13 +27,13 @@ Setup Instructions
 
 1. Clone the repository
 
-# Clone the project
+
 $ git clone <repository-link>
 $ cd <project-folder>
 
 2. Install dependencies
 
-# Install all required libraries
+
 $ pip install flask serpapi beautifulsoup4 requests selenium fuzzywuzzy transformers torch
 
 3. Setup SerpAPI Key
