@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        .chat-box {
+            max-width: 600px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .message {
+            margin-bottom: 15px;
+        }
+        .user {
+            font-weight: bold;
+            color: #0084ff;
+        }
+        .bot {
+            font-weight: bold;
+            color: #555;
+        }
+        form {
+            display: flex;
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            background: #0084ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #005bb5;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-box">
+    {% if user_message %}
+        <div class="message user">You: {{ user_message }}</div>
+
+        {% if output %}
+            {% for key, value in output.items() %}
+                <div class="message">
+                    
+                    <span class="value">
+                        {% if value is mapping %}
+                            <ul>
+                                {% for subkey, subvalue in value.items() %}
+                                    <li style="list-style-type: none";> {{ subvalue }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            {{ value }}
+                        {% endif %}
+                    </span>
+                </div>
+            {% endfor %}
+        {% endif %}
+
+    {% else %}
+        <p>Start a conversation!</p>
+    {% endif %}
+
+    <form method="POST">
+        <input type="text" name="message" placeholder="Type your message..." required>
+        <button type="submit">Send</button>
+    </form>
+</div>
+
+</body>
+</html>
