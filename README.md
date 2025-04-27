@@ -28,10 +28,10 @@ Setup Instructions
 # 1. Clone the repository
 
 
-$ git clone <repository-link>
-$ cd <project-folder>
+$ git clone https://github.com/POORNIMA-MC/web-research-agent
 
-#2. Install dependencies
+
+# 2. Install dependencies
 
 
 $ pip install flask serpapi beautifulsoup4 requests selenium fuzzywuzzy transformers torch
